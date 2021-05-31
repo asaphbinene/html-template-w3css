@@ -1,0 +1,36 @@
+#header {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    flex-flow: row;
+    justify-items: center;
+}
+
+#deals {
+    display: flex;/* Flex layout so items ‘have equal height’  */
+    flex-flow: row wrap;/* Allow items to wrap into multiple lines */
+}
+    
+.sale-item {
+    display: flex;/* Lay out each item using flex layout */
+    flex-flow: column;/* Lay out item’s contents vertically  */
+}
+.sale-item > img {
+    order:-1;/* Shift image before other content (in visual order) */
+    align-self: center;/* ‘Center the image cross-wise (horizontally)’*/
+}
+.sale-item > button {
+    margin-top: auto;/* Auto top margin pushes button to bottom */
+}
+
+main {
+    display: flex;
+}
+main > article {
+    order:2;min-width:12em;flex:1;
+}
+main > nav     {
+    order:1;width:200px;
+}
+main > aside   {order:3;width:200px;}
+
+@media all and (max-width: 600px) {/* Too narrow to support three columns */  main { flex-flow: column; }  main > article, main > nav, main > aside {    /* Return them to document order */    order: 0; width: auto;  }}
